@@ -9,10 +9,15 @@ In this project, a classifier used to predict stress of English words is created
 Before coming up with the features, I calculated some probability dictionaries from the training data in order to provide some information for the tree to learn.
 
 (1)	For each possible vowel, I calculate the probability of this vowel to be a stress and store such information in a dictionary, which can be used to calculate vow_P1, vow_P2, vow_P3 and vow_P4
+
 (2)	For each possible consonant, I calculate the probability of the consonant, such that the following vowel is a stress, which can be used to calculate const_P1, const_P2, const_P3 and const_P4.
+
 (3)	For each possible combination of consonant and vowel in the training set, I calculated the probability of such appearance in the training data set and store it in the dictionary, which can be used to calculate CV_P1, CV_P2, CV_P3 and CV_P4
+
 (4)	For each possible combination of the last vowel and its one following consonant in a word, I calculated the possibility of such appearance in the training set and store such tail pattern in a dictionary, which is used for VC_tail
+
 (5)	For each possible combination of the last vowel and its two following consonants in a word, I calculated the possibility of such appearance in the training set and store such tail pattern in a dictionary, which is used for VCC_tail
+
 (6)	For each prefix, I created three dictionaries:
 a.	prefix_list2 = ['CO', 'DE','EM', 'EN', 'EX','IL', 'IM', 'IN', 'IR','RE','UN','DE', 'EX']
 b.	prefix_list3 = ['DIS','EPI','MID', 'MIS','NON','PRE', 'SUB','TRI', 'UNI','COM', 'CON','SUB', 'TRI']
@@ -22,7 +27,7 @@ If a word has a prefix in prefix_list3, then the feature ‘prefix’ is equal t
 If a word has a prefix in prefix_list4, then the feature ‘prefix’ is equal to 4.
 otherwise, the feature ‘prefix’ is equal to 1.
 
-7)	For each suffix, I created three dictionaries:
+(7)	For each suffix, I created three dictionaries:
 a.	suffix_list2 = ['AL','AR','AL','ER','ED','EE','EN','CE','EL','IC','FY','LY','LO','NE','NO','ON','OR','NA','TH','TY','US']
 b.	suffix_list3 = ['ADE','AGE','ACY','ARD','ANT','ARY','ATE','AUX','CHE','DOX','DOM','EER','ERT','FUL','FUS','EST','KIE','IAL','IAN','ILE','IFY','ILY','INE','ING','ION','OUS','ISE','ISH','ISM','IST','ITE','ITY','IVE','LOG','IZE','LET','MAN','NEY','OID','OUS','SIR','OMA','ORY','TON']
 c.	suffix_list4 = ['ABLE','ANCE','ATIVE','CIDE','CRACY','CRAT','CULE','CHIN','DATO','DIAN','EMIA','ENCE','ESQUE','ETIC','ETTE','GRAM','GRAMY','HOOD','IASIS','IBLE','ICAL','IOUS','ITIS','IZATION','LESS','LIKE','LING','LONGER','LOGIST','LLOW','MENT','NESS','OLOGY','ONYM','OPIA','OPSY','OSIS','OSTOMY','PATH','PATHY','PHILE','PHONE','PHYTE','PLEGIA','PLEGIC','PNEA','SCOPY','SCOPE','SCRIBE','SCRIPT','SECT','SHIP','SION','SOME','SOPHY','SOPHIC','SKI','SSUS','TION','TOME','TOMY','TROPHY','TUDE','ULAR','UOUS','URE','WARD','WORTH','WARE','WISE', 'WARDS']
