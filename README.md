@@ -37,24 +37,43 @@ otherwise, the feature ‘suffix is equal to 1.
 Most selected features are based on the probabilistic model which gives rise to the probability of features being significant in the classifier and instances. All features along with the explanation of their roles in the mode are given in the table below. There are 20 features in total.
 
 1	length	The length of the word	Normally the longer a word is, it is possible that the stress is placed in latter vowels
+
 2	Constant_count	The number of Constant in the word.	Usually, more consonants mean the length might be longer and might contain more vowels. The stress is possible to be placed in latter vowels.
+
 3	Vowel_count	The probability of the length of a word learned from the training set.	Since there are up to four vowels in a word, the number of vowels can only be 1,2,3 and 4. P1, P2, P3 and P4 denote the probability of the number of phonemes being the length of 1,2,3 and 4. Still, normally, if there are more vowels, latter vowels are likely to be stressed.
+
 4	vow_P1	The probability of the first vowel to be the stress of the word learned from the training set.	After learning from the training set, if Pc1 is higher, it is more likely that this position is a stress.
+
 5	const_P1	The probability of the consonant before the first vowel, such that the vowel after this consonant is a stress.	Due to the definition of the probability of such consonant, the higher such probability is, the vowel right after it is more likely to be a stress.
+
 6	vow_P2	The definition is the same as vow_P1, with the only difference being that the probability is defined for the second vowel.	The same explanation as vow_P1 and the only difference is that this explanation applies to the second vowel.
+
 7	const_P2	The definition is the same as const_P1 with the only difference being that the probability is defined for the consonant before the second vowel being a stress.	The same explanation as const_P1 and the only difference is that this explanation applies to the consonant before the second stressed vowel.
+
 8	vow_P3	The definition is the same as vow_P1, with the only difference being that the probability is defined for the third vowel.	The same explanation as vow_P3 and the only difference is that this explanation applies to the third vowel. Set to 0 if no third vowel exists.
+
 9	const_P3	The definition is the same as const_P1, with the only difference being that the probability is defined for the consonant before the third vowel being a stress.	The same explanation as const_P1 and the only difference is that this explanation applies to the consonant before the third stressed vowel. Set to 0 if no third vowel exists.
+
 10	vow_P4	The definition is the same as vow_P1, with the only difference being that the probability is defined for the forth vowel.	The same explanation as vow_P1 and the only difference is that this explanation applies to the forth vowel. Set to 0 if no forth vowel exists.
+
 11	const_P4	The definition is the same as const_P1, with the only difference being that the probability is defined for the consonant before the forth vowel being a stress.	The same explanation as const_P1 and the only difference is that this explanation applies to the consonant before the third stressed vowel. Set to 0 if no forth vowel exists.
+
 12	CV_P1	The probability of the combination of a consonant and a vowel where the vowel is the first vowel in the word and the consonant is the one before this. The probability is learned from the training set.	If a combination of a consonant and a vowel is likely to be a stress of the word, high probability of such combination in a test case indicates that it might follow that same stress rule as the ones of the same pattern in the training data set.
+
 13	CV_P2	Similar as CV_P1 but for the second vowel position.	The same significance as CV_P1
+
 14	CV_P3	Similar as CV_P1 but for the third vowel position. Set to 0 if no such combination exists during the test.	The same significance as CV_P1
+
 15	CV_P4	Similar as CV_P1 but for the forth vowel position. Set to 0 if no such combination exists during the test.	The same significance as CV_P1
+
 16	last_pronoun	The last pronunciation of the word	Normally, last pronunciation is closely related to the position of the stress, e.g. with the last pronunciation of ‘tion’, it is highly possible that the stress is located in the third or the forth position.
+
 17	VC_tail	The probability of the combination of the last vowel and the consonant that follows such vowel. If the last vowel does not have a following consonant, the consonant is set to empty. In the test case, the probability is 0 if new combination comes to place	The last vowel and the following consonant gives information about the pronunciation pattern of the last part of a word, which is decisive in word type, i.e. noun or adjective. This is crucial to the position of stress in words.
+
 18	VCC_tail	VC_tail only considers the consonant right after the last vowel. However, in some cases, there might be two consonants after the last vowel, the probability such combination is also included as a feature. Also, it is set to 0 if in the test case, new combination comes up.	It provides the similar information as VC_tail, only with a more comprehensive and inclusive description. Such information is also related to the type of words, i.e. noun, adjective or others.
+
 19	prefix	The length of prefix of a word	The values are 1, 2, 3, 4 which represents the length of the prefix in the prefix dictionary
+
 20	suffix	The length of suffix of a word	The values are 1, 2, 3, 4 which represents the length of the suffix in the suffix dictionary
 
 4.	Experiment and Improvement
