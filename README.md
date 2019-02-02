@@ -8,12 +8,12 @@ In this project, a classifier used to predict stress of English words is created
 
 Before coming up with the features, I calculated some probability dictionaries from the training data in order to provide some information for the tree to learn.
 
-1)	For each possible vowel, I calculate the probability of this vowel to be a stress and store such information in a dictionary, which can be used to calculate vow_P1, vow_P2, vow_P3 and vow_P4
-2)	For each possible consonant, I calculate the probability of the consonant, such that the following vowel is a stress, which can be used to calculate const_P1, const_P2, const_P3 and const_P4.
-3)	For each possible combination of consonant and vowel in the training set, I calculated the probability of such appearance in the training data set and store it in the dictionary, which can be used to calculate CV_P1, CV_P2, CV_P3 and CV_P4
-4)	For each possible combination of the last vowel and its one following consonant in a word, I calculated the possibility of such appearance in the training set and store such tail pattern in a dictionary, which is used for VC_tail
-5)	For each possible combination of the last vowel and its two following consonants in a word, I calculated the possibility of such appearance in the training set and store such tail pattern in a dictionary, which is used for VCC_tail
-6)	For each prefix, I created three dictionaries:
+(1)	For each possible vowel, I calculate the probability of this vowel to be a stress and store such information in a dictionary, which can be used to calculate vow_P1, vow_P2, vow_P3 and vow_P4
+(2)	For each possible consonant, I calculate the probability of the consonant, such that the following vowel is a stress, which can be used to calculate const_P1, const_P2, const_P3 and const_P4.
+(3)	For each possible combination of consonant and vowel in the training set, I calculated the probability of such appearance in the training data set and store it in the dictionary, which can be used to calculate CV_P1, CV_P2, CV_P3 and CV_P4
+(4)	For each possible combination of the last vowel and its one following consonant in a word, I calculated the possibility of such appearance in the training set and store such tail pattern in a dictionary, which is used for VC_tail
+(5)	For each possible combination of the last vowel and its two following consonants in a word, I calculated the possibility of such appearance in the training set and store such tail pattern in a dictionary, which is used for VCC_tail
+(6)	For each prefix, I created three dictionaries:
 a.	prefix_list2 = ['CO', 'DE','EM', 'EN', 'EX','IL', 'IM', 'IN', 'IR','RE','UN','DE', 'EX']
 b.	prefix_list3 = ['DIS','EPI','MID', 'MIS','NON','PRE', 'SUB','TRI', 'UNI','COM', 'CON','SUB', 'TRI']
 c.	prefix_list4 = ['ANTE', 'ANTI', 'CIRCUM','EXTRA','FORE', 'HYPER', 'INFRA', 'INTER', 'INTRA','MACRO', 'MONO', 'OMNI', 'POST','SUPER', 'THERM', 'TRANS', 'CONTRA','HOMO', 'MAGN', 'PARA','TRANS']
