@@ -4,6 +4,11 @@
 
 In this project, a classifier used to predict stress of English words is created to classify English words with up to four phonemes and only one stress being marked as 1 in the training dataset. In order to solve this problem, a decision tree is utilised by implementing sklearn.tree.DecisionTreeClassifier with limited height in order to prevent overfitting. The following section will illustrate features selected, ways to implement, experiment and improve the classifier and the result analysis.
 
+files are for the following purpose:
+helper.py : read the data from original file.
+methods.py: define all training, testing function. Also define how the tree classifier is constructed. Data preprocessing is also in this file.
+execute.py: call all functions defined in methods.py.
+
 2.	Dictionary Computation
 
 Before coming up with the features, I calculated some probability dictionaries from the training data in order to provide some information for the tree to learn.
